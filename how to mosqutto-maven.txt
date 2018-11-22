@@ -1,0 +1,9 @@
+install mosquitto on linux server
+	sudo apt-get install mosquitto mosquitto-clients
+
+
+install java
+	sudo apt-get install openjdk-8-jre-headless
+	sudo apt-get install openjdk-8-jdk-headless
+
+once maven project is created. to compile do mvn package
