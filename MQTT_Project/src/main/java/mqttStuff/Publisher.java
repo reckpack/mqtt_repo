@@ -19,7 +19,7 @@ public class Publisher {
     System.out.println("== START PUBLISHER ==");
 
 
-    MqttClient client = new MqttClient("tcp://localhost:1883", MqttClient.generateClientId());
+    MqttClient client = new MqttClient("tcp://192.168.56.102:8080", MqttClient.generateClientId());
     client.connect();
     MqttMessage message = new MqttMessage();
     message.setPayload(messageString.getBytes());
