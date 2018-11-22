@@ -1,8 +1,9 @@
-package com.mapr.demo.mqtt;
+package main.java.com;
 
-import com.mapr.demo.mqtt.simple.Publisher;
-import com.mapr.demo.mqtt.simple.Subscriber;
 import org.eclipse.paho.client.mqttv3.MqttException;
+
+import mqtt.classes.Publisher;
+import mqtt.classes.Subscriber;
 
 /**
  * Basic launcher for Publisher and Subscriber
@@ -14,6 +15,7 @@ public class MqttApp {
     if (args.length < 1) {
       throw new IllegalArgumentException("Must have either 'publisher' or 'subscriber' as argument");
     }
+    
     switch (args[0]) {
       case "publisher":
         Publisher.main(args);
