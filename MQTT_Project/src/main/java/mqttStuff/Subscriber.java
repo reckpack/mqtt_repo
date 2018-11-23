@@ -16,7 +16,7 @@ public class Subscriber implements Runnable {
 	public Subscriber(String[] _topics) throws MqttException
 	{
 		m_topics = _topics;
-		m_client = new MqttClient("tcp://192.168.56.102:1883", MqttClient.generateClientId());
+		m_client = new MqttClient("tcp://192.168.56.102:8883", MqttClient.generateClientId());
 		m_client.setCallback( new SubscriberMQTTCallback() );
 		m_client.connect();
 	    m_exit = false;
