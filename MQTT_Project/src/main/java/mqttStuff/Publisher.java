@@ -3,6 +3,7 @@ package mqttStuff;
 import java.util.Scanner;
 
 import org.eclipse.paho.client.mqttv3.MqttClient;
+import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 
@@ -17,7 +18,10 @@ public class Publisher implements Runnable {
 	{
 		m_name = _name;
 		m_client = new MqttClient("tcp://192.168.56.102:8883", MqttClient.generateClientId());
-		m_client.connect();
+		MqttConnectOptions op = new MqttConnectOptions();
+		op.setConnectionTimeout(6000);
+		m_client.setCallback( new SubscriberMQTTCallback() );
+		m_client.connect(op);
 		m_exit = false;
 	}
 

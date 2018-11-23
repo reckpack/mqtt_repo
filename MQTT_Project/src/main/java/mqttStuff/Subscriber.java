@@ -3,6 +3,7 @@ package mqttStuff;
 import java.util.ArrayList;
 
 import org.eclipse.paho.client.mqttv3.MqttClient;
+import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
 import org.eclipse.paho.client.mqttv3.MqttException;
 
 import proj.MESSAGE_QUEUE;
@@ -18,7 +19,10 @@ public class Subscriber implements Runnable {
 		m_topics = _topics;
 		m_client = new MqttClient("tcp://192.168.56.102:8883", MqttClient.generateClientId());
 		m_client.setCallback( new SubscriberMQTTCallback() );
-		m_client.connect();
+		MqttConnectOptions op = new MqttConnectOptions();
+		op.setConnectionTimeout(6000);
+		m_client.connect(op);
+		//m_client.connect();
 	    m_exit = false;
 	}
 	 
