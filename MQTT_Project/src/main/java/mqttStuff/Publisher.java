@@ -16,7 +16,7 @@ public class Publisher implements Runnable {
 	public Publisher(String _name) throws MqttException
 	{
 		m_name = _name;
-		m_client = new MqttClient("tcp://192.168.56.102:8080", MqttClient.generateClientId());
+		m_client = new MqttClient("tcp://192.168.56.102:1883", MqttClient.generateClientId());
 		m_client.connect();
 		m_exit = false;
 	}
