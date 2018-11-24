@@ -45,11 +45,13 @@ public class mainApp {
 		
 		if(arrOfStr.length > 0)
 		{
+			sub = new Subscriber(arrOfStr);
+			Thread subThread = new Thread(sub, "subscriber");
+			
 			pub = new Publisher(name);
 			Thread pubThread = new Thread(pub, "publisher");
 			
-			sub = new Subscriber(arrOfStr);
-			Thread subThread = new Thread(sub, "subscriber");
+			
 			pubThread.start();
 			subThread.start();
 			

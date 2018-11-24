@@ -17,11 +17,11 @@ public class Subscriber implements Runnable {
 	public Subscriber(String[] _topics) throws MqttException
 	{
 		m_topics = _topics;
-		m_client = new MqttClient("tcp://192.168.56.102:8883", MqttClient.generateClientId());
+		m_client = new MqttClient("tcp://192.168.56.101:1883", MqttClient.generateClientId());
 		m_client.setCallback( new SubscriberMQTTCallback() );
-		MqttConnectOptions op = new MqttConnectOptions();
-		op.setConnectionTimeout(6000);
-		m_client.connect(op);
+		//MqttConnectOptions op = new MqttConnectOptions();
+		//op.setConnectionTimeout();
+		m_client.connect();
 		//m_client.connect();
 	    m_exit = false;
 	}
